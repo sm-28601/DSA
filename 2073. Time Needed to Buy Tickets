@@ -1,0 +1,48 @@
+//First approach
+//This is frist approach with TC = O(n×m) 
+//where n = number of person in line and m = maximum number tickets any person need
+
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int n = tickets.size();
+        int time = 0;
+        while(tickets[k]>0){
+            for(int i  = 0 ; i < n ; i++){
+                if(tickets[i]>0){
+                    tickets[i]--;
+                    time++;
+                }
+                if(tickets[k] == 0) 
+                    return time;
+            }
+        }
+        return time;
+    }
+};
+
+
+
+//First approach
+//This is frist approach with TC = O(n) 
+//where n = number of person in line 
+
+
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int n = tickets.size();
+        int time = 0;
+        for(int i  = 0 ; i < n ; i++){
+            if(i<=k){
+                time+= min(ticket[i],ticket[k]);
+            }
+            else{
+              time+= min(ticket[i],ticket[k]-1);
+            }
+        }
+        return time;
+    }
+};
+
+
